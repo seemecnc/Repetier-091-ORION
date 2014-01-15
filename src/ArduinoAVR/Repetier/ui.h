@@ -658,7 +658,7 @@ void ui_check_slow_keys(int &action) {}
 #define UI_DISPLAY_D6_PIN _BV(10)
 #define UI_DISPLAY_D7_PIN _BV(9)
 
-
+/*
 #if true || !defined(BEEPER_PIN) || BEEPER_PIN<0
 #define BEEPER_PIN        _BV(5)
 #define BEEPER_TYPE       2
@@ -667,6 +667,7 @@ void ui_check_slow_keys(int &action) {}
 #define UI_I2C_HEATBED_LED    _BV(8)
 #define UI_I2C_HOTEND_LED     _BV(7)
 #define UI_I2C_FAN_LED        _BV(6)
+*/
 
 #define UI_INVERT_MENU_DIRECTION false
 #define UI_HAS_I2C_KEYS

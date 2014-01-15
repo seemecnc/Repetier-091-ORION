@@ -988,6 +988,7 @@ void Commands::executeGCode(GCode *com)
 #endif
 
 #if defined(BEEPER_PIN) && BEEPER_PIN>=0
+
         case 300:
         {
             int beepS = 1;
@@ -998,6 +999,9 @@ void Commands::executeGCode(GCode *com)
             HAL::delayMilliseconds(beepP);
             HAL::noTone(BEEPER_PIN);
         }
+      
+        
+        
         break;
 #endif
         case 303:
@@ -1372,14 +1376,23 @@ void Commands::executeGCode(GCode *com)
         }
     }
 }
+
+/*
+##############################################
+
+modifying code below to shut off heaters, home the machine to the top  (for deltas Only) and then reset the board
+
+##############################################
+*/
+
 void Commands::emergencyStop()
 {
-#if defined(KILL_METHOD) && KILL_METHOD==1
-    HAL::resetHardware();
-#else
-    BEGIN_INTERRUPT_PROTECTED
+//#if defined(KILL_METHOD) && KILL_METHOD==1
+    //HAL::resetHardware();
+//#else
+    //BEGIN_INTERRUPT_PROTECTED
     //HAL::forbidInterrupts(); // Don't allow interrupts to do their work
-    kill(false);
+    //kill(false);
     Extruder::manageTemperatures();
     for(uint8_t i=0; i<NUM_EXTRUDER+3; i++)
         pwm_pos[i] = 0;
@@ -1408,10 +1421,24 @@ void Commands::emergencyStop()
 #if HEATED_BED_HEATER_PIN>-1
     WRITE(HEATED_BED_HEATER_PIN,0);
 #endif
-    while(1) {}
-    END_INTERRUPT_PROTECTED
-#endif
+
+
+
+    //while(1) {}    WE DONT WANT TO HANG ON THE WHILE LOOP, we want to reset the board and be ready to start again, after shutting off heats and homing the machine
+    //END_INTERRUPT_PROTECTED
+  
+//#endif
+
+    // adding the homing code 
+  Printer::homeAxis(true,true,true);
+  OUT_P_LN("Resetting Machine");
+  UI_STATUS_UPD_RAM("RESETTING/E-STOP");
+  delay(800);
+  HAL::resetHardware();
 }
+
+
+// ################### END of modified Emergency Stop Code
 
 void Commands::checkFreeMemory()
 {

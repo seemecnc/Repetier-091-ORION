@@ -1500,6 +1500,7 @@ STEPPER_CURRENT_CONTROL
 #define E1_MS1_PIN     63
 #define E1_MS2_PIN     64
 
+
 #define DIGIPOTSS_PIN  38
 #define DIGIPOT_CHANNELS {4,5,3,0,1} // X Y Z E0 E1 digipot channels to stepper driver mapping
 

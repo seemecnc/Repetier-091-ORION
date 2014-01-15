@@ -681,7 +681,7 @@ on this endstop.
 // If EEPROM is enabled these values will be overidden with the values in the EEPROM
 #define X_MAX_LENGTH 250
 #define Y_MAX_LENGTH 250
-#define Z_MAX_LENGTH 250
+#define Z_MAX_LENGTH 234.66
 
 // Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
 // of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.
@@ -861,9 +861,9 @@ If the interval at full speed is below this value, smoothing is disabled for tha
 /** \brief X, Y, Z max acceleration in mm/s^2 for printing moves or retracts. Make sure your printer can go that high!
  Overridden if EEPROM activated.
 */
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 4250
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 4250
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 4250
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 9000  
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 9000
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 9000
 
 /** \brief X, Y, Z max acceleration in mm/s^2 for travel moves.  Overridden if EEPROM activated.*/
 #define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X 3000
@@ -893,8 +893,8 @@ Corner can be printed with full speed of 50 mm/s
 
 Overridden if EEPROM activated.
 */
-#define MAX_JERK 25.0  
-#define MAX_ZJERK 25.0
+#define MAX_JERK 40.0  
+#define MAX_ZJERK 40.0
 
 /** \brief Number of moves we can cache in advance.
 
