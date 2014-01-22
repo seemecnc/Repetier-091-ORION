@@ -2,6 +2,15 @@
 
 #for ORION DELTA by SEEMECNC 
 
+Special thanks to the following for getting configurations for the Orion machines:
+
+in2str
+guanu
+
+and many others on http://forum.seemecnc.com
+
+ 
+
 Experimental release
 
 ## Installation
