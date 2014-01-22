@@ -1164,8 +1164,9 @@ Select the language to use.
 4 = Italian
 5 = Spanish
 6 = Swedish
+13 = SeeMeCNC Customized LCCD Menu
 */
-#define UI_LANGUAGE 0
+#define UI_LANGUAGE 13
 
 // This is line 2 of the status display at startup. Change to your like.
 #define UI_PRINTER_NAME "ORION"

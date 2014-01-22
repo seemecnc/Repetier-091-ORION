@@ -168,7 +168,7 @@ for 2 row displays. You can add additional pages or change the default pages lik
 
 #elif UI_ROWS>=4
  #if HAVE_HEATED_BED==true
-   UI_PAGE4(ui_page1,"\005%ec/%Ec\002B%eB/%Eb\002","Z:%x2","Mul:%om Buf:%oB","%os");
+   UI_PAGE4(ui_page1,"NOZ:%ec Target:%Ec","BED:%eb Target:%Eb","Speed:%om%%% Flow:%of%%%","%os");
    //UI_PAGE4(ui_page1,UI_TEXT_PAGE_EXTRUDER,UI_TEXT_PAGE_BED,UI_TEXT_PAGE_BUFFER,"%os");
  #else
    UI_PAGE4(ui_page1,UI_TEXT_PAGE_EXTRUDER,"Z:%x2 mm",UI_TEXT_PAGE_BUFFER,"%os");
@@ -199,9 +199,9 @@ for 2 row displays. You can add additional pages or change the default pages lik
 Merge pages together. Use the following pattern:
 #define UI_PAGES {&name1,&name2,&name3}
 */
- #define UI_PAGES {&ui_page1,&ui_page2,&ui_page3 UI_PRINTTIME_PAGES}
+ #define UI_PAGES {&ui_page1 UI_PRINTTIME_PAGES}  //{&ui_page1,&ui_page2,&ui_page3 UI_PRINTTIME_PAGES}
 // How many pages do you want to have. Minimum is 1.
- #define UI_NUM_PAGES 3+UI_PRINTTIME_COUNT
+ #define UI_NUM_PAGES 1+UI_PRINTTIME_COUNT  //3+UI_PRINTTIME_COUNT
 #else
 #if HAVE_HEATED_BED==true
 UI_PAGE2(ui_page1,UI_TEXT_PAGE_EXTRUDER,UI_TEXT_PAGE_BED);
@@ -216,7 +216,7 @@ Merge pages together. Use the following pattern:
 */
 #define UI_PAGES {&ui_page1,&ui_page2,&ui_page3}
 // How many pages do you want to have. Minimum is 1.
-#define UI_NUM_PAGES 3
+#define UI_NUM_PAGES 1  //3
 #endif
 /* ============ MENU definition ================
 
@@ -392,7 +392,7 @@ UI_MENU(ui_menu_quick,UI_MENU_QUICK,8+UI_MENU_BACKCNT+MENU_PSON_COUNT+DEBUG_PRIN
 
 #if FAN_PIN>-1
 UI_MENU_CHANGEACTION(ui_menu_fan_fanspeed, UI_TEXT_ACTION_FANSPEED,UI_ACTION_FANSPEED);
-UI_MENU_ACTIONCOMMAND_FILTER(ui_menu_fan_off,UI_TEXT_FAN_OFF,UI_ACTION_FAN_OFF,MENU_MODE_FAN_RUNNING,0);
+UI_MENU_ACTIONCOMMAND_FILTER(ui_menu_fan_off,UI_TEXT_FAN_OFF,UI_ACTION_FAN_OFF,MENU_MODE_FAN_RUNNING,0); 
 UI_MENU_ACTIONCOMMAND(ui_menu_fan_25,UI_TEXT_FAN_25,UI_ACTION_FAN_25);
 UI_MENU_ACTIONCOMMAND(ui_menu_fan_50,UI_TEXT_FAN_50,UI_ACTION_FAN_50);
 UI_MENU_ACTIONCOMMAND(ui_menu_fan_75,UI_TEXT_FAN_75,UI_ACTION_FAN_75);
@@ -574,14 +574,26 @@ UI_MENU_SUBMENU(ui_menu_conf_delta, UI_TEXT_ZCALIB, ui_menu_delta);
 #endif
 #define UI_MENU_CONFIGURATION {UI_MENU_ADDCONDBACK &ui_menu_conf_general,&ui_menu_conf_accel,&ui_menu_conf_feed,&ui_menu_conf_extr UI_MENU_EEPROM_COND UI_MENU_DELTA_COND UI_MENU_SL_COND}
 UI_MENU(ui_menu_configuration,UI_MENU_CONFIGURATION,UI_MENU_BACKCNT+UI_MENU_EEPROM_CNT+UI_MENU_DELTA_CNT+UI_MENU_SL_CNT+4);
+
+
+
 // Main menu
+
 UI_MENU_SUBMENU(ui_menu_main1,UI_TEXT_QUICK_SETTINGS,ui_menu_quick);
 UI_MENU_SUBMENU(ui_menu_main2, UI_TEXT_POSITION,ui_menu_positions);
 UI_MENU_SUBMENU(ui_menu_main3,UI_TEXT_EXTRUDER,ui_menu_extruder);
 UI_MENU_SUBMENU(ui_menu_main4,UI_TEXT_DEBUGGING,ui_menu_debugging);
 UI_MENU_SUBMENU(ui_menu_main5,UI_TEXT_CONFIGURATION,ui_menu_configuration);
+//adding adjust temps naming
+UI_MENU_SUBMENU(ui_menu_main6,UI_TEXT_ADJTEMPS,ui_menu_extruder);
+
+
+#define UI_MENU_MAIN {UI_MENU_ADDCONDBACK  &ui_menu_main1,&ui_menu_sd_printfile,&ui_menu_main6,UI_MENU_FAN_COND UI_MENU_SD_COND &ui_menu_main5}
+UI_MENU(ui_menu_main,UI_MENU_MAIN,4+UI_MENU_BACKCNT+UI_MENU_SD_CNT+UI_MENU_FAN_CNT);
+/*
 #define UI_MENU_MAIN {UI_MENU_ADDCONDBACK  &ui_menu_main1,&ui_menu_sd_printfile,&ui_menu_main2,&ui_menu_main3,UI_MENU_FAN_COND UI_MENU_SD_COND &ui_menu_main4,&ui_menu_main5}
 UI_MENU(ui_menu_main,UI_MENU_MAIN,6+UI_MENU_BACKCNT+UI_MENU_SD_CNT+UI_MENU_FAN_CNT);
+*/
 
 /* Define menus accessible by action commands
 

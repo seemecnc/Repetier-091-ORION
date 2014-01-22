@@ -1190,7 +1190,7 @@
 // GPL V3. Only new and complete translations are put into the official distribution!
 // *************************************************************************************
 
-#if UI_LANGUAGE==1000
+#if UI_LANGUAGE==13
 
 #define UI_TEXT_ON               "On"
 #define UI_TEXT_OFF              "Off"
@@ -1204,12 +1204,13 @@
 #define UI_TEXT_IDLE             "Idle"
 #define UI_TEXT_NOSDCARD         "No SD Card"
 #define UI_TEXT_ERROR            "**** ERROR ****"
-#define UI_TEXT_BACK             "Back \001"
-#define UI_TEXT_QUICK_SETTINGS   "Quick Settings"
-#define UI_TEXT_CONFIGURATION    "Configuration"
+#define UI_TEXT_BACK             "Previous Screen \001"
+#define UI_TEXT_QUICK_SETTINGS   "Printer Settings"
+#define UI_TEXT_CONFIGURATION    "Advanced Settings"
 #define UI_TEXT_POSITION         "Position"
+#define UI_TEXT_ADJTEMPS         "Adjust Temps"
 #define UI_TEXT_EXTRUDER         "Extruder"
-#define UI_TEXT_SD_CARD          "SD Card"
+#define UI_TEXT_SD_CARD          "SD Card Menu"
 #define UI_TEXT_DEBUGGING        "Debugging"
 #define UI_TEXT_HOME_ALL         "Home All"
 #define UI_TEXT_HOME_X           "Home X"
@@ -1263,7 +1264,7 @@
 #define UI_TEXT_OPS_MINDIST      "Min.dist:%Od"
 #define UI_TEXT_OPS_MOVE_AFTER   "Move after:%Oa"
 #define UI_TEXT_ANTI_OOZE        "Anti Ooze"
-#define UI_TEXT_PRINT_FILE       "Print file"
+#define UI_TEXT_PRINT_FILE       "Select File"
 #define UI_TEXT_PAUSE_PRINT      "Pause Print"
 #define UI_TEXT_CONTINUE_PRINT   "Continue Print"
 #define UI_TEXT_UNMOUNT_CARD     "Unmount Card"
@@ -1291,7 +1292,7 @@
 #define UI_TEXT_ACTION_XPOSITION_FAST2 "X:%x0 mm","Min:%sx Max:%sX"
 #define UI_TEXT_ACTION_YPOSITION_FAST2 "Y:%x1 mm","Min:%sy Max:%sY"
 #define UI_TEXT_ACTION_ZPOSITION_FAST2 "Z:%x2 mm","Min:%sz Max:%sZ"
-#define UI_TEXT_FANSPEED          "Fan speed"
+#define UI_TEXT_FANSPEED          "Adjust Fan Speed"
 #define UI_TEXT_ACTION_FANSPEED   "Fan speed:%Fs%%%"
 #define UI_TEXT_FAN_OFF           "Turn Fan Off"
 #define UI_TEXT_FAN_25            "Set Fan 25%%%"
