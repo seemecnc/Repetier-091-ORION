@@ -2885,7 +2885,7 @@ void UIDisplay::slowAction()
         if(epos)
         {
             nextPreviousAction(epos);
-            BEEP_SHORT
+            //BEEP_SHORT
             refresh=1;
         }
         if(lastAction!=lastButtonAction)
