@@ -138,7 +138,8 @@ void SDCard::pausePrint(bool intern)
     if(intern) {
         Commands::waitUntilEndOfAllBuffers();
         Printer::MemoryPosition();
-#if DRIVE_SYSTEM==3
+#if DRIVE_SYSTEM==3 // which means DELTA
+// DAFUQ as andy says  This is causing the machine to go to X=0 and Y=40% of Y_MAX_LENGTH which on an Orion is 250*.4=100, which is OUTSIDE is travel limits
         Printer::moveToReal(0,0.4*Printer::yLength,Printer::currentPosition[Z_AXIS],IGNORE_COORDINATE,Printer::maxFeedrate[X_AXIS]);
 #else
         Printer::moveToReal(Printer::xMin,Printer::yMin+Printer::yLength,Printer::currentPosition[Z_AXIS],IGNORE_COORDINATE,Printer::maxFeedrate[X_AXIS]);
