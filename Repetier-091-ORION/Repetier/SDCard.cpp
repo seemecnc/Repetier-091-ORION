@@ -142,12 +142,7 @@ void SDCard::pausePrint(bool intern)
     if(intern) {
         Commands::waitUntilEndOfAllBuffers();
         Printer::MemoryPosition();
-#if DRIVE_SYSTEM==3 // which means DELTA
-
-        Printer::moveToReal(Printer::currentPosition[X_AXIS],Printer::currentPosition[Y_AXIS],Printer::currentPosition[Z_AXIS],IGNORE_COORDINATE,Printer::maxFeedrate[X_AXIS]);  // removed 0.4*Printer::yLength in Y position place
-#else
-        Printer::moveToReal(Printer::xMin,Printer::yMin+Printer::yLength,Printer::currentPosition[Z_AXIS],IGNORE_COORDINATE,Printer::maxFeedrate[X_AXIS]);
-#endif
+        Printer::moveToReal(Printer::currentPosition[X_AXIS],Printer::currentPosition[Y_AXIS],Printer::currentPosition[Z_AXIS],IGNORE_COORDINATE,Printer::maxFeedrate[X_AXIS]);  // removed 0.4*Printer::yLength in Y position place   
     }
 #endif
 }
@@ -158,8 +153,8 @@ void SDCard::continuePrint(bool intern)
     Printer::setMenuMode(MENU_MODE_SD_PAUSED,false);
 #if FEATURE_MEMORY_POSITION
     if(intern) {
+        Printer::GoToMemoryPosition(false,false,true,false,Printer::maxFeedrate[X_AXIS]);
         Printer::GoToMemoryPosition(true,true,false,true,Printer::maxFeedrate[X_AXIS]);
-        Printer::GoToMemoryPosition(false,false,true,false,Printer::maxFeedrate[Z_AXIS]);
        
       }
 #endif
