@@ -2,8 +2,9 @@
 
 
 
-experimental 0.91 firmware for ORION DELTA
-
+0.91 firmware for ORION DELTA
+2/16/2015
+updated UI.cpp and renamed prog_char to just char per Geneb's findings
 
 
 
