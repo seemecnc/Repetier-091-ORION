@@ -552,7 +552,7 @@ Heat manager for heated bed:
 The precise values may differ for different nozzle/resistor combination.
  Overridden if EEPROM activated.
 */
-#define HEATED_BED_PID_INTEGRAL_DRIVE_MAX 255
+#define HEATED_BED_PID_INTEGRAL_DRIVE_MAX 225
 /** \brief lower value for integral part
 
 The I state should converge to the exact heater output needed for the target temperature.
@@ -568,7 +568,7 @@ A good start is 30 lower then the optimal value. You need to leave room for cool
 /** Dgain.  Overridden if EEPROM activated.*/
 #define HEATED_BED_PID_DGAIN 641.82
 // maximum time the heater can be switched on. Max = 255.  Overridden if EEPROM activated.
-#define HEATED_BED_PID_MAX 255
+#define HEATED_BED_PID_MAX 225
 
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
@@ -698,7 +698,7 @@ on this endstop.
 
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
 #if MOTHERBOARD==301
-#define MOTOR_CURRENT {175,175,175,200,0} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)  use 140 for xyz and 160 for the E if using Kysan motors and 175 xyz and 200 if using wantai motors
+#define MOTOR_CURRENT {140,140,140,130,0} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)  use 140 for xyz and 160 for the E if using Kysan motors and 175 xyz and 200 if using wantai motors
 
 #elif MOTHERBOARD==12
 #define MOTOR_CURRENT {35713,35713,35713,35713,35713} // Values 0-65535 (3D Master 35713 = ~1A)
