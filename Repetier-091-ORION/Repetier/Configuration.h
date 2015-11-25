@@ -145,13 +145,13 @@ If a motor turns in the wrong direction change INVERT_X_DIR or INVERT_Y_DIR.
 /** \brief Number of steps for a 1mm move in x direction.
 For xy gantry use 2*belt moved!
 Overridden if EEPROM activated. */
-#define XAXIS_STEPS_PER_MM 98.425196
+#define XAXIS_STEPS_PER_MM 80.000  //98.425196
 /** \brief Number of steps for a 1mm move in y direction.
 For xy gantry use 2*belt moved!
 Overridden if EEPROM activated.*/
-#define YAXIS_STEPS_PER_MM 98.425196
+#define YAXIS_STEPS_PER_MM 80.000  //98.425196
 /** \brief Number of steps for a 1mm move in z direction  Overridden if EEPROM activated.*/
-#define ZAXIS_STEPS_PER_MM 2560
+#define ZAXIS_STEPS_PER_MM 80.000  //2560
 #endif
 
 // ##########################################################################################
@@ -712,8 +712,10 @@ on this endstop.
 // Delta settings
 #if DRIVE_SYSTEM==3
 /** \brief Delta rod length
+Orion Delta w/ pin clip style original arms is 178.0
+Orion w/new ball cup style arms is 179.0
 */
-#define DELTA_DIAGONAL_ROD 178.0 // mm
+#define DELTA_DIAGONAL_ROD 179.0 // mm
 
 
 /*  =========== Parameter essential for delta calibration ===================
@@ -745,16 +747,21 @@ on this endstop.
 #define DELTA_RADIUS_CORRECTION_C 0
 
 /** \brief Horizontal offset of the universal joints on the end effector (moving platform).
+Orion Delta w/laser cut carriages and pin/clip original style arms is 33.0
+Orion Delta w/molded cheapskate carriages and pin clip style arms is 30.0
+Orion Delta w/molded cheapskate carriages and new ball cup arms is 30.0 also
 */
-#define END_EFFECTOR_HORIZONTAL_OFFSET 33.0
+#define END_EFFECTOR_HORIZONTAL_OFFSET 30.0
 
 /** \brief Horizontal offset of the universal joints on the vertical carriages.
+Orion Delta w/laser cut carriages and pin/clip original style arms is 38.4
+Orion Delta w/molded cheapskate carriages and pin clip style arms is 27.6
+Orion Delta w/molded cheapskate carriages and new ball cup arms is 27.6 also
 */
-#define CARRIAGE_HORIZONTAL_OFFSET 38.4
+#define CARRIAGE_HORIZONTAL_OFFSET 27.6
 
-/** \brief Printer radius in mm, measured from the center of the print area to the vertical smooth rod.
-*/
-#define PRINTER_RADIUS 145.7
+/** \brief Printer radius in mm, measured from the center of the print area to the vertical smooth rod.*/
+#define PRINTER_RADIUS 145.7 
 
 /**  \brief Horizontal distance bridged by the diagonal push rod when the end effector is in the center. It is pretty close to 50% of the push rod length (250 mm).
 */
@@ -779,7 +786,11 @@ you can also change the values online and autoleveling will store the results he
 
 #endif
 #if DRIVE_SYSTEM == 4 // ========== Tuga special settings =============
-/* Radius of the long arm in mm. */
+/* Radius of the long arm in mm. 
+Orion Delta w/laser cut carriages and pin/clip original style arms is 33.0
+Orion Delta w/molded cheapskate carriages and pin clip style arms is 30.0
+Orion Delta w/molded cheapskate carriages and new ball cup arms is 30.0 also
+*/
 #define DELTA_DIAGONAL_ROD 240
 #endif
 
