@@ -679,9 +679,9 @@ on this endstop.
 // For delta robot Z_MAX_LENGTH is the maximum travel of the towers and should be set to the distance between the hotend
 // and the platform when the printer is at its home position.
 // If EEPROM is enabled these values will be overidden with the values in the EEPROM
-#define X_MAX_LENGTH 250
-#define Y_MAX_LENGTH 250
-#define Z_MAX_LENGTH 234.66
+#define X_MAX_LENGTH 250.0
+#define Y_MAX_LENGTH 250.0
+#define Z_MAX_LENGTH 235.0
 
 // Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
 // of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.
@@ -713,9 +713,9 @@ on this endstop.
 #if DRIVE_SYSTEM==3
 /** \brief Delta rod length
 Orion Delta w/ pin clip style original arms is 178.0
-Orion w/new ball cup style arms is 179.0
+Orion w/new ball cup style arms is 179.0 or newer blue arms 176.5
 */
-#define DELTA_DIAGONAL_ROD 179.0 // mm
+#define DELTA_DIAGONAL_ROD 176.5
 
 
 /*  =========== Parameter essential for delta calibration ===================
@@ -751,14 +751,14 @@ Orion Delta w/laser cut carriages and pin/clip original style arms is 33.0
 Orion Delta w/molded cheapskate carriages and pin clip style arms is 30.0
 Orion Delta w/molded cheapskate carriages and new ball cup arms is 30.0 also
 */
-#define END_EFFECTOR_HORIZONTAL_OFFSET 30.0
+#define END_EFFECTOR_HORIZONTAL_OFFSET 30.22  // 
 
 /** \brief Horizontal offset of the universal joints on the vertical carriages.
 Orion Delta w/laser cut carriages and pin/clip original style arms is 38.4
 Orion Delta w/molded cheapskate carriages and pin clip style arms is 27.6
 Orion Delta w/molded cheapskate carriages and new ball cup arms is 27.6 also
 */
-#define CARRIAGE_HORIZONTAL_OFFSET 27.6
+#define CARRIAGE_HORIZONTAL_OFFSET 27.1
 
 /** \brief Printer radius in mm, measured from the center of the print area to the vertical smooth rod.*/
 #define PRINTER_RADIUS 145.7 
