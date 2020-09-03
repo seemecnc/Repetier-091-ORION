@@ -1,5 +1,7 @@
 # Repetier-Firmware - the fast and user friendly firmware
 
+# Visit seemecnc.com for documentation under the menu tab SUPPORT > ARCHIVE
+
 #for ORION DELTA by SEEMECNC 
 
 Special thanks to the following for getting configurations for the Orion machines:
